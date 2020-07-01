@@ -13,13 +13,20 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
         {
             entity.HasIndex(e => e.UserId);
 
+            entity.Property(e => e.CommentId).HasColumnName("CommentID");
+
             entity.Property(e => e.CommentGuid)
+                .HasColumnName("CommentGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.Message).IsRequired();
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
 
             entity.HasOne(d => d.User)
                 .WithMany(p => p.Comment)

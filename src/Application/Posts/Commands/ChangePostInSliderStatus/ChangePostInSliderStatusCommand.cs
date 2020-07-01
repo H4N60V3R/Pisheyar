@@ -20,9 +20,9 @@ namespace Pisheyar.Application.Posts.Commands.ChangePostInSliderStatus
 
         public class ChangePostIsInSliderStatusCommandHandler : IRequestHandler<ChangePostInSliderStatusCommand, ChangePostInSliderStatusVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public ChangePostIsInSliderStatusCommandHandler(IPisheyarContext context)
+            public ChangePostIsInSliderStatusCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

@@ -18,9 +18,9 @@ namespace Pisheyar.Application.Posts.Commands.DeletePost
 
         public class DeleteCategoryCommandHandler : IRequestHandler<DeletePostCommand, DeletePostCommandVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public DeleteCategoryCommandHandler(IPisheyarContext context)
+            public DeleteCategoryCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

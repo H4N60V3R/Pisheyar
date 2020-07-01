@@ -15,7 +15,10 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.UserId);
 
+            entity.Property(e => e.ChatMessageId).HasColumnName("ChatMessageID");
+
             entity.Property(e => e.ChatMessageGuid)
+                .HasColumnName("ChatMessageGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 
@@ -27,7 +30,13 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.OrderRequestId).HasColumnName("OrderRequestID");
+
             entity.Property(e => e.SentAt).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.Text).IsRequired();
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
 
             entity.HasOne(d => d.OrderRequest)
                 .WithMany(p => p.ChatMessage)
@@ -36,10 +45,10 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
                 .HasConstraintName("FK_ChatMessage_OrderRequest");
 
             entity.HasOne(d => d.User)
-                    .WithMany(p => p.ChatMessage)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ChatMessage_User");
+                .WithMany(p => p.ChatMessage)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ChatMessage_User");
         }
     }
 }

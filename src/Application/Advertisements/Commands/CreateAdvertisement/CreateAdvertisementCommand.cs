@@ -25,10 +25,10 @@ namespace Pisheyar.Application.Advertisements.Commands.CreateAdvertisement
 
         public class CreateAdvertisementCommandHandler : IRequestHandler<CreateAdvertisementCommand, CreateAdvertisementVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public CreateAdvertisementCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public CreateAdvertisementCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

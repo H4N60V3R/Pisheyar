@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Common.UploadHelper.CKEditor
 
         public class CKEditorUploaderHandler : IRequestHandler<CKEditorUploader, CKEditorDto>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public CKEditorUploaderHandler(IPisheyarContext context)
+            public CKEditorUploaderHandler(IPishePlusContext context)
             {
                 _context = context;
             }

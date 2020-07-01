@@ -23,11 +23,11 @@ namespace Pisheyar.Application.OrderRequests.Commands.CreateOrderRequest
 
         public class CreateOrderCommandHandler : IRequestHandler<CreateOrderRequestCommand, CreateOrderRequestVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
             private readonly ISmsService _sms;
 
-            public CreateOrderCommandHandler(IPisheyarContext context, ICurrentUserService currentUserService, ISmsService smsService)
+            public CreateOrderCommandHandler(IPishePlusContext context, ICurrentUserService currentUserService, ISmsService smsService)
             {
                 _context = context;
                 _currentUser = currentUserService;

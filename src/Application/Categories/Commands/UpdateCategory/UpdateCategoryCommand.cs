@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Categories.Commands.UpdateCategory
 
         public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, int>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public UpdateCategoryCommandHandler(IPisheyarContext context)
+            public UpdateCategoryCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

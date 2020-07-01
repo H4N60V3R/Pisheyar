@@ -13,9 +13,9 @@ namespace Pisheyar.Infrastructure.Services
 {
     public class ChatRoomService : IChatRoomService
     {
-        private readonly IPisheyarContext _context;
+        private readonly IPishePlusContext _context;
 
-        public ChatRoomService(IPisheyarContext context)
+        public ChatRoomService(IPishePlusContext context)
         {
             _context = context;
         }

@@ -15,9 +15,18 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.PublicDiscountId);
 
+            entity.Property(e => e.ContractorDiscountId).HasColumnName("ContractorDiscountID");
+
             entity.Property(e => e.ContractorDiscountGuid)
+                .HasColumnName("ContractorDiscountGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.ContractorId).HasColumnName("ContractorID");
+
+            entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
+
+            entity.Property(e => e.PublicDiscountId).HasColumnName("PublicDiscountID");
 
             entity.HasOne(d => d.Contractor)
                 .WithMany(p => p.ContractorDiscount)

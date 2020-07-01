@@ -13,17 +13,30 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
         {
             entity.HasIndex(e => e.ContractorId);
 
+            entity.HasIndex(e => e.PaymentProviderSettingId);
+
+            entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
+
+            entity.Property(e => e.ContractorId).HasColumnName("ContractorID");
+
             entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
 
-            entity.Property(e => e.IsSuccessful).HasDefaultValueSql("((0))");
+            entity.Property(e => e.PaymentGuid)
+                .HasColumnName("PaymentGUID")
+                .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
+                .HasDefaultValueSql("(newid())");
 
-            entity.Property(e => e.PaymentGuid).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.PaymentProviderSettingId).HasColumnName("PaymentProviderSettingID");
 
             entity.HasOne(d => d.Contractor)
                 .WithMany(p => p.Payment)
                 .HasForeignKey(d => d.ContractorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Payment_Contractor");
+
+            entity.HasOne(d => d.PaymentProviderSetting)
+                .WithMany(p => p.Payment)
+                .HasForeignKey(d => d.PaymentProviderSettingId);
         }
     }
 }

@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Posts.Queries.GetPostsByPagination
 
         public class GetAllPostsQueryHandler : IRequestHandler<GetPostsByPaginationQuery, GetPostsByPaginationVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetAllPostsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetAllPostsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Posts.Queries.GetPostsByCategory
 
         public class GetPostsByCategoryQueryHandler : IRequestHandler<GetPostsByCategoryQuery, GetPostsByCategoryVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public GetPostsByCategoryQueryHandler(IPisheyarContext context)
+            public GetPostsByCategoryQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }

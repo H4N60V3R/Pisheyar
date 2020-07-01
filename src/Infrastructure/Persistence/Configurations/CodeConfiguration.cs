@@ -14,13 +14,22 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
             entity.HasIndex(e => e.CodeGroupId)
                     .HasName("IX_Tbl_Code_Code_CGID");
 
+            entity.Property(e => e.CodeId).HasColumnName("CodeID");
+
+            entity.Property(e => e.CodeGroupId).HasColumnName("CodeGroupID");
+
             entity.Property(e => e.CodeGuid)
+                .HasColumnName("CodeGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.DisplayName).HasMaxLength(128);
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.Name).HasMaxLength(128);
 
             entity.HasOne(d => d.CodeGroup)
                 .WithMany(p => p.Code)

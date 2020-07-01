@@ -11,13 +11,20 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<CodeGroup> entity)
         {
+            entity.Property(e => e.CodeGroupId).HasColumnName("CodeGroupID");
+
             entity.Property(e => e.CodeGroupGuid)
+                .HasColumnName("CodeGroupGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.DisplayName).HasMaxLength(128);
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.Name).HasMaxLength(128);
         }
     }
 }

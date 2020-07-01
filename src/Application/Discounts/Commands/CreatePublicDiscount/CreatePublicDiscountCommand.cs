@@ -24,7 +24,7 @@ namespace Pisheyar.Application.Discounts.Commands.CreatePublicDiscount
 
         public class CreateSuggestionCommandHandler : IRequestHandler<CreatePublicDiscountCommand, CreatePublicDiscountVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
             private readonly Dictionary<string, int> _monthNumber = new Dictionary<string, int>()
             {
@@ -42,7 +42,7 @@ namespace Pisheyar.Application.Discounts.Commands.CreatePublicDiscount
                 { "Dec", 12 },
             };
 
-            public CreateSuggestionCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public CreateSuggestionCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

@@ -19,10 +19,10 @@ namespace Pisheyar.Application.OrderRequests.Commands.AllowContractorToChatByCli
 
         public class CreateOrderCommandHandler : IRequestHandler<AllowContractorToChatByClientCommand, AllowContractorToChatByClientVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public CreateOrderCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public CreateOrderCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

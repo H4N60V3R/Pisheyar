@@ -18,10 +18,10 @@ namespace Pisheyar.Application.CodeGroups.Queries.GetAllCodeGroups
     {
         public class GetAllCodeGroupsQueryHandler : IRequestHandler<GetAllCodeGroupsQuery, GetAllCodeGroupsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetAllCodeGroupsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetAllCodeGroupsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

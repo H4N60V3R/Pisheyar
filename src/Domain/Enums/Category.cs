@@ -54,8 +54,9 @@ namespace Pisheyar.Domain.Enums
         DocumentGuidProblem = 2,
         CategoryNotFound = 3,
         CoverDocumentNotFound = 4,
-        ActiveIconDocumentNotFound = 5,
-        InactiveIconDocumentNotFound = 6,
-        QuadMenuDocumentNotFound = 7
+        SecondPageCoverDocumentNotFound = 5,
+        ActiveIconDocumentNotFound = 6,
+        InactiveIconDocumentNotFound = 7,
+        QuadMenuDocumentNotFound = 8
     }
 }

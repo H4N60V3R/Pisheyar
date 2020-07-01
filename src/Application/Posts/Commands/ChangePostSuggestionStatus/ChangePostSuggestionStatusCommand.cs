@@ -20,9 +20,9 @@ namespace Pisheyar.Application.Posts.Commands.ChangePostSuggestionStatus
 
         public class ChangePostActivenessCommandHandler : IRequestHandler<ChangePostSuggestionStatusCommand, ChangePostSuggestionStatusVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public ChangePostActivenessCommandHandler(IPisheyarContext context)
+            public ChangePostActivenessCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

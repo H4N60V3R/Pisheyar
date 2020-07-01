@@ -22,10 +22,10 @@ namespace Pisheyar.Application.Codes.Commands.CreateCode
 
         public class CreateComplaintCommandHandler : IRequestHandler<CreateCodeCommand, CreateCodeVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public CreateComplaintCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public CreateComplaintCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

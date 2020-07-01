@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Categories.Commands.CreateCategory
 
         public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, int>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public CreateCategoryCommandHandler(IPisheyarContext context)
+            public CreateCategoryCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

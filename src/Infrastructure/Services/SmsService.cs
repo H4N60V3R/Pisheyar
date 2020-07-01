@@ -16,10 +16,10 @@ namespace Pisheyar.Infrastructure.Services
     [Authorize]
     public class SmsService : ISmsService
     {
-        private readonly IPisheyarContext _context;
+        private readonly IPishePlusContext _context;
         private readonly string apikey;
 
-        public SmsService(IPisheyarContext context)
+        public SmsService(IPishePlusContext context)
         {
             _context = context;
             apikey = _context.SmsProviderSetting.FirstOrDefault().Apikey;

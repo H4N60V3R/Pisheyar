@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Contractors.Commands.ChangeContractorCity
 
         public class ChangeContractorCityCommandHandler : IRequestHandler<ChangeContractorCityCommand, ChangeContractorCityVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public ChangeContractorCityCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public ChangeContractorCityCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

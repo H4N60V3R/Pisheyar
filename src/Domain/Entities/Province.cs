@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pisheyar.Domain.Entities
 {
@@ -12,20 +10,13 @@ namespace Pisheyar.Domain.Entities
             City = new HashSet<City>();
         }
 
-        [Key]
-        [Column("ProvinceID")]
         public int ProvinceId { get; set; }
-        [Column("ProvinceGUID")]
         public Guid ProvinceGuid { get; set; }
-        [Required]
-        [StringLength(128)]
         public string Name { get; set; }
-        [Required]
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        [InverseProperty("Province")]
         public virtual ICollection<City> City { get; set; }
     }
 }

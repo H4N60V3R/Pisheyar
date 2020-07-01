@@ -20,10 +20,10 @@ namespace Pisheyar.Application.OrderRequests.Queries.GetOrderRequestFinishingSta
 
         public class GetOrderRequestFinishingStatusQueryHandler : IRequestHandler<GetOrderRequestFinishingStatusQuery, GetOrderRequestFinishingStatusVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public GetOrderRequestFinishingStatusQueryHandler(IPisheyarContext context,
+            public GetOrderRequestFinishingStatusQueryHandler(IPishePlusContext context,
                 ICurrentUserService currentUserService)
             {
                 _context = context;

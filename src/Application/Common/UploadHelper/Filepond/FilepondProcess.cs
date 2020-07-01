@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Common.UploadHelper.Filepond
 
         public class FilepondProcessHandler : IRequestHandler<FilepondProcess, Guid?>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public FilepondProcessHandler(IPisheyarContext context)
+            public FilepondProcessHandler(IPishePlusContext context)
             {
                 _context = context;
             }

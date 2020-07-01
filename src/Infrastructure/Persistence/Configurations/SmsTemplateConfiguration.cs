@@ -11,8 +11,12 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<SmsTemplate> entity)
         {
+            entity.ToTable("SMSTemplate");
+
             entity.HasIndex(e => e.SmsProviderSettingId)
-                    .HasName("IX_Tbl_SMSTemplate_ST_SSID");
+                .HasName("IX_Tbl_SMSTemplate_ST_SSID");
+
+            entity.Property(e => e.SmsTemplateId).HasColumnName("SMSTemplateID");
 
             entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
@@ -20,7 +24,14 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(128);
+
+            entity.Property(e => e.SmsProviderSettingId).HasColumnName("SMSProviderSettingID");
+
             entity.Property(e => e.SmsTemplateGuid)
+                .HasColumnName("SMSTemplateGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 

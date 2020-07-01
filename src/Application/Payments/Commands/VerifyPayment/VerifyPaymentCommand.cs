@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Payments.Commands.VerifyPayment
 
         public class CreatePaymentCommandHandler : IRequestHandler<VerifyPaymentCommand, VerifyPaymentVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IZarinPalService _zarinPal;
 
-            public CreatePaymentCommandHandler(IPisheyarContext context,
+            public CreatePaymentCommandHandler(IPishePlusContext context,
                 IZarinPalService zarinPal)
             {
                 _context = context;

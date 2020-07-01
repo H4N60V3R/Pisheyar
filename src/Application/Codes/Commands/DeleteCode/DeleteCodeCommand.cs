@@ -18,9 +18,9 @@ namespace Pisheyar.Application.Codes.Commands.DeleteCode
 
         public class DeleteUserCommandHandler : IRequestHandler<DeleteCodeCommand, DeleteCodeVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public DeleteUserCommandHandler(IPisheyarContext context)
+            public DeleteUserCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

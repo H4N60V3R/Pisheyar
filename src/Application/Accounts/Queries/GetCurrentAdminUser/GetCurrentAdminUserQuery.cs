@@ -18,11 +18,11 @@ namespace Pisheyar.Application.Accounts.Queries.GetCurrentAdminUser
     {
         public class GetUserByGuidQueryHandler : IRequestHandler<GetCurrentAdminUserQuery, GetCurrentAdminUserVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
             private readonly IMapper _mapper;
 
-            public GetUserByGuidQueryHandler(IPisheyarContext context, ICurrentUserService currentUserService, IMapper mapper)
+            public GetUserByGuidQueryHandler(IPishePlusContext context, ICurrentUserService currentUserService, IMapper mapper)
             {
                 _context = context;
                 _currentUser = currentUserService;

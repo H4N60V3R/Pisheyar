@@ -15,15 +15,22 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.UserId);
 
+            entity.Property(e => e.TokenId).HasColumnName("TokenID");
+
             entity.Property(e => e.ExpireDate).HasDefaultValueSql("(getdate())");
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.RoleCodeId).HasColumnName("RoleCodeID");
+
             entity.Property(e => e.TokenGuid)
+                .HasColumnName("TokenGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
 
             entity.HasOne(d => d.RoleCode)
                 .WithMany(p => p.Token)

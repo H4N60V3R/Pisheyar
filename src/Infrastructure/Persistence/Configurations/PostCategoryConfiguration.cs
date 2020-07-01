@@ -15,13 +15,20 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.PostId);
 
+            entity.Property(e => e.PostCategoryId).HasColumnName("PostCategoryID");
+
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
             entity.Property(e => e.PostCategoryGuid)
+                .HasColumnName("PostCategoryGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.PostId).HasColumnName("PostID");
 
             entity.HasOne(d => d.Category)
                 .WithMany(p => p.PostCategory)

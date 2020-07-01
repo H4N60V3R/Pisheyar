@@ -18,9 +18,9 @@ namespace Pisheyar.Application.Categories.Queries.GetAllCategoriesName
     {
         public class GetCategoriesQueryHandler : IRequestHandler<GetAllCategoriesNameQuery, AllCategoriesNameVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             
-            public GetCategoriesQueryHandler(IPisheyarContext context)
+            public GetCategoriesQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }

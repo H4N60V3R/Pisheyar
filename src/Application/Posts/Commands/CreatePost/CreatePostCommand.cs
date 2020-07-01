@@ -34,10 +34,10 @@ namespace Pisheyar.Application.Posts.Commands.CreatePost
 
         public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, CreatePostCommandVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public CreatePostCommandHandler(IPisheyarContext context, ICurrentUserService currentUserService)
+            public CreatePostCommandHandler(IPishePlusContext context, ICurrentUserService currentUserService)
             {
                 _context = context;
                 _currentUser = currentUserService;

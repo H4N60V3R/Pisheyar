@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Accounts.Queries.GetUserByMobile
 
         public class GetUserByMobileQueryHandler : IRequestHandler<GetUserByMobileQuery, UserByMobileVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetUserByMobileQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetUserByMobileQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

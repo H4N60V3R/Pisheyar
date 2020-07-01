@@ -25,7 +25,7 @@ namespace WebUI.Controllers
         }
 
         /// <summary>
-        /// بارگذاری سند - FilepondRevert
+        /// بارگذاری سند - FilepondProcess
         /// </summary>
         /// <param name="filepond">اطلاعات سند</param>
         /// <returns></returns>
@@ -36,7 +36,7 @@ namespace WebUI.Controllers
         }
 
         /// <summary>
-        /// بارگذاری سند - FilepondProcess
+        /// بارگذاری سند - FilepondRevert
         /// </summary>
         /// <returns></returns>
         [HttpPost("[action]")]

@@ -18,10 +18,10 @@ namespace Pisheyar.Application.ChangeOrderRequestPrice.Commands.ChangeUsersIniti
 
         public class ChangeUserInitialCreditCommandHandler : IRequestHandler<ChangeUsersInitialCreditCommand, ChangeUsersInitialCreditVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public ChangeUserInitialCreditCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public ChangeUserInitialCreditCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

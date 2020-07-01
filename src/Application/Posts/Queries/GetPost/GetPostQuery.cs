@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Posts.Queries.GetPost
 
         public class GetPostQueryHandler : IRequestHandler<GetPostQuery, GetPostVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetPostQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetPostQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

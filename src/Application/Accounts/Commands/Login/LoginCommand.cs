@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Accounts.Commands.Login
 
         public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ISmsService _sms;
 
-            public LoginCommandHandler(IPisheyarContext context, ISmsService smsService)
+            public LoginCommandHandler(IPishePlusContext context, ISmsService smsService)
             {
                 _context = context;
                 _sms = smsService;
@@ -81,7 +81,7 @@ namespace Pisheyar.Application.Accounts.Commands.Login
                 };
 
                 //int t = new Random().Next(100000, 999999);
-                const int t = 111111;
+                int t = 111111;
 
                 Token userToken = new Token
                 {

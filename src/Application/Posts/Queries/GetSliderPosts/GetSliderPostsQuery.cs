@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Posts.Queries.GetSliderPosts
     {
         public class GetIndexPostsQueryHandler : IRequestHandler<GetSliderPostsQuery, GetSliderPostsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetIndexPostsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetIndexPostsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

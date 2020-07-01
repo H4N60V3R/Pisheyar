@@ -20,9 +20,9 @@ namespace Pisheyar.Application.Accounts.Queries.GetUserPermissionsByGuid
 
         public class GetUserPermissionsByGuidQueryHandler : IRequestHandler<GetUserPermissionsByGuidQuery, UserPermissionsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public GetUserPermissionsByGuidQueryHandler(IPisheyarContext context)
+            public GetUserPermissionsByGuidQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }

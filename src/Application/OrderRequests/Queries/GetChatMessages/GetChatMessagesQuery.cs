@@ -20,11 +20,11 @@ namespace Pisheyar.Application.OrderRequests.Queries.GetChatMessages
 
         public class OrdersListQueryHandler : IRequestHandler<GetChatMessagesQuery, GetChatMessagesVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
             private readonly IMapper _mapper;
 
-            public OrdersListQueryHandler(IPisheyarContext context, ICurrentUserService currentUserService, IMapper mapper)
+            public OrdersListQueryHandler(IPishePlusContext context, ICurrentUserService currentUserService, IMapper mapper)
             {
                 _context = context;
                 _currentUser = currentUserService;

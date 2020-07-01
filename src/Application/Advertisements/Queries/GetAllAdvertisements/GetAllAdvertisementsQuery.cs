@@ -18,11 +18,11 @@ namespace Pisheyar.Application.Posts.Queries.GetAllAdvertisements
     {
         public class GetAllPostsQueryHandler : IRequestHandler<GetAllAdvertisementsQuery, GetAllAdvertisementsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
             private readonly IMapper _mapper;
 
-            public GetAllPostsQueryHandler(IPisheyarContext context, ICurrentUserService currentUser, IMapper mapper)
+            public GetAllPostsQueryHandler(IPishePlusContext context, ICurrentUserService currentUser, IMapper mapper)
             {
                 _context = context;
                 _currentUser = currentUser;

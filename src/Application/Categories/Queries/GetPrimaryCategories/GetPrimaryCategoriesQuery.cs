@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Categories.Queries.GetPrimaryCategories
 
         public class GetPrimaryCategoriesQueryHandler : IRequestHandler<GetPrimaryCategoriesQuery, PrimaryCategoriesVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public GetPrimaryCategoriesQueryHandler(IPisheyarContext context)
+            public GetPrimaryCategoriesQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }
@@ -76,9 +76,27 @@ namespace Pisheyar.Application.Categories.Queries.GetPrimaryCategories
                                 }
                             }
                         },
+                        SecondPageCoverDocument = new FilepondDto
+                        {
+                            Source = x.SecondPageCoverDocument.Path,
+                            Options = new FilepondOptions
+                            {
+                                Type = "local",
+                                Files = new FilepondFile
+                                {
+                                    Name = x.SecondPageCoverDocument.Name,
+                                    Size = x.SecondPageCoverDocument.Size.ToString(),
+                                    Type = x.SecondPageCoverDocument.TypeCode.Name
+                                },
+                                Metadata = new FilepondMetadata
+                                {
+                                    Poster = x.SecondPageCoverDocument.Path
+                                }
+                            }
+                        },
                         ActiveIconDocument = new FilepondDto
                         {
-                            Source = x.CoverDocument.Path,
+                            Source = x.ActiveIconDocument.Path,
                             Options = new FilepondOptions
                             {
                                 Type = "local",
@@ -96,7 +114,7 @@ namespace Pisheyar.Application.Categories.Queries.GetPrimaryCategories
                         },
                         InactiveIconDocument = new FilepondDto
                         {
-                            Source = x.CoverDocument.Path,
+                            Source = x.InactiveIconDocument.Path,
                             Options = new FilepondOptions
                             {
                                 Type = "local",
@@ -114,7 +132,7 @@ namespace Pisheyar.Application.Categories.Queries.GetPrimaryCategories
                         },
                         QuadMenuDocument = new FilepondDto
                         {
-                            Source = x.CoverDocument.Path,
+                            Source = x.QuadMenuDocument.Path,
                             Options = new FilepondOptions
                             {
                                 Type = "local",

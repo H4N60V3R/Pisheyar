@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pisheyar.Domain.Entities
 {
@@ -11,54 +9,39 @@ namespace Pisheyar.Domain.Entities
         {
             ContractorCategory = new HashSet<ContractorCategory>();
             ContractorDiscount = new HashSet<ContractorDiscount>();
+            ContractorDocument = new HashSet<ContractorDocument>();
             Order = new HashSet<Order>();
             OrderRequest = new HashSet<OrderRequest>();
             Payment = new HashSet<Payment>();
             PrivateDiscount = new HashSet<PrivateDiscount>();
         }
 
-        [Key]
-        [Column("ContractorID")]
         public int ContractorId { get; set; }
-        [Column("ContractorGUID")]
         public Guid ContractorGuid { get; set; }
-        [Column("UserID")]
         public int UserId { get; set; }
-        [Column("BusinessTypeCodeID")]
         public int BusinessTypeCodeId { get; set; }
-        [Column("CityID")]
         public int CityId { get; set; }
-        [Required]
-        [StringLength(128)]
         public string Latitude { get; set; }
-        [Required]
-        [StringLength(128)]
         public string Longitude { get; set; }
         public int Credit { get; set; }
         public double? AverageRate { get; set; }
+        public string Address { get; set; }
+        public string AboutMe { get; set; }
+        public string Telephone { get; set; }
+        public string Website { get; set; }
+        public string Instagram { get; set; }
         public bool IsDelete { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        [ForeignKey(nameof(BusinessTypeCodeId))]
-        [InverseProperty(nameof(Code.Contractor))]
         public virtual Code BusinessTypeCode { get; set; }
-        [ForeignKey(nameof(CityId))]
-        [InverseProperty("Contractor")]
         public virtual City City { get; set; }
-        [ForeignKey(nameof(UserId))]
-        [InverseProperty("Contractor")]
         public virtual User User { get; set; }
-        [InverseProperty("Contractor")]
         public virtual ICollection<ContractorCategory> ContractorCategory { get; set; }
-        [InverseProperty("Contractor")]
         public virtual ICollection<ContractorDiscount> ContractorDiscount { get; set; }
-        [InverseProperty("Contractor")]
+        public virtual ICollection<ContractorDocument> ContractorDocument { get; set; }
         public virtual ICollection<Order> Order { get; set; }
-        [InverseProperty("Contractor")]
         public virtual ICollection<OrderRequest> OrderRequest { get; set; }
-        [InverseProperty("Contractor")]
         public virtual ICollection<Payment> Payment { get; set; }
-        [InverseProperty("Contractor")]
         public virtual ICollection<PrivateDiscount> PrivateDiscount { get; set; }
     }
 }

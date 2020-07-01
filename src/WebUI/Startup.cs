@@ -50,13 +50,14 @@ namespace WebUI
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddHealthChecks()
-                .AddDbContextCheck<PisheyarContext>();
+                .AddDbContextCheck<PishePlusContext>();
 
             services.AddCors(options => options.AddPolicy("CorsPolicy",
             builder =>
             {
                 builder.AllowAnyMethod()
                     .AllowAnyHeader()
+                    //.AllowAnyOrigin()
                     .WithOrigins("http://localhost:3000")
                     .WithOrigins("http://127.0.0.1:3000")
                     .WithOrigins("http://localhost:3001")
@@ -67,7 +68,7 @@ namespace WebUI
                     .WithOrigins("http://127.0.0.1:5500")
                     .AllowCredentials();
             }));
-            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IPisheyarContext>())
+            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IPishePlusContext>())
                 .AddNewtonsoftJson();
 
             // Customise default API behaviour
@@ -90,7 +91,7 @@ namespace WebUI
 
             app.UseCustomExceptionHandler();
             app.UseHealthChecks("/health");
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseSwaggerDocumentation();

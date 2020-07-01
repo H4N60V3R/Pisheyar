@@ -18,9 +18,9 @@ namespace Pisheyar.Application.OrderRequests.Commands.DeleteOrderRequest
 
         public class DeleteUserCommandHandler : IRequestHandler<DeleteOrderRequestCommand, DeleteOrderRequestVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public DeleteUserCommandHandler(IPisheyarContext context)
+            public DeleteUserCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

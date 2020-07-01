@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Categories.Queries.SearchCategories
 
         public class SearchCategoriesQueryHandler : IRequestHandler<SearchCategoriesQuery, SearchCategoriesVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public SearchCategoriesQueryHandler(IPisheyarContext context, IMapper mapper)
+            public SearchCategoriesQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

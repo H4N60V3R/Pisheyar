@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Tags.Queries.GetAllTags
     {
         public class GetCategoriesQueryHandler : IRequestHandler<GetAllTagsQuery, AllTagsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetCategoriesQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetCategoriesQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

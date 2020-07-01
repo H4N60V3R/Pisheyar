@@ -15,6 +15,12 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.OrderId);
 
+            entity.Property(e => e.OrderRequestId).HasColumnName("OrderRequestID");
+
+            entity.Property(e => e.ContractorId).HasColumnName("ContractorID");
+
+            entity.Property(e => e.Message).IsRequired();
+
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.IsAccept).HasDefaultValueSql("((0))");
@@ -23,7 +29,10 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
             entity.Property(e => e.OrderRequestGuid)
+                .HasColumnName("OrderRequestGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 

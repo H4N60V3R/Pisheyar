@@ -18,9 +18,9 @@ namespace Pisheyar.Application.Posts.Commands.LikePost
 
         public class LikePostCommandHandler : IRequestHandler<LikePostCommand, int>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public LikePostCommandHandler(IPisheyarContext context)
+            public LikePostCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

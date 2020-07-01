@@ -19,10 +19,10 @@ namespace Pisheyar.Application.OrderRequests.Commands.AcceptOrderRequest
 
         public class CreateOrderCommandHandler : IRequestHandler<AcceptOrderRequestCommand, AcceptOrderRequestVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public CreateOrderCommandHandler(IPisheyarContext context, ICurrentUserService currentUserService)
+            public CreateOrderCommandHandler(IPishePlusContext context, ICurrentUserService currentUserService)
             {
                 _context = context;
                 _currentUser = currentUserService;

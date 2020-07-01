@@ -18,10 +18,10 @@ namespace Pisheyar.Application.ChangeOrderRequestPrice.Commands.ChangeOrderReque
 
         public class ChangeOrderRequestsPriceCommandHandler : IRequestHandler<ChangeOrderRequestsPriceCommand, ChangeOrderRequestsPriceVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public ChangeOrderRequestsPriceCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public ChangeOrderRequestsPriceCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

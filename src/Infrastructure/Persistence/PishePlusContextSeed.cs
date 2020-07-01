@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Pisheyar.Infrastructure.Persistence
 {
-    public static class PisheyarContextSeed
+    public static class PishePlusContextSeed
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
@@ -9113,9 +9113,9 @@ namespace Pisheyar.Infrastructure.Persistence
 					{
 						SmsProviderSettingId = 1,
 						SmsProviderId = 1,
-						Username = "ptmgroupco@gmail.com",
-						Password = "ptcoptco",
-						Apikey = "61726634455053586E44464E413462574A76535677436B547236574B56386D6A6F6E4F326A374A4C7755773D"
+						Username = "raffi.hovanes@gmail.com",
+						Password = "raffi1234",
+						Apikey = "532B514B4E305A456D5A737669687A5161444B355544557462576650737634545959532F76517A572B65733D"
 					}
 				);
 
@@ -9141,6 +9141,12 @@ namespace Pisheyar.Infrastructure.Persistence
 						SmsTemplateId = 1,
 						SmsProviderSettingId = 1,
 						Name = "VerifyAccount"
+					},
+					new SmsTemplate
+					{
+						SmsTemplateId = 2,
+						SmsProviderSettingId = 1,
+						Name = "RegisterMessage"
 					}
 				);
 
@@ -9493,7 +9499,7 @@ namespace Pisheyar.Infrastructure.Persistence
                     new Category
                     {
                         CategoryId = 3,
-                        CategoryGuid = Guid.NewGuid(),
+                        CategoryGuid = Guid.Parse("e3b1e3a1-4d79-454d-8b1f-6c9e24e290b2"),
                         ParentCategoryId = 1,
 						CoverDocumentId = null,
 						ActiveIconDocumentId = null,

@@ -25,7 +25,7 @@ namespace WebUI
 
                 try
                 {
-                    var context = services.GetRequiredService<PisheyarContext>();
+                    var context = services.GetRequiredService<PishePlusContext>();
                     context.Database.Migrate();
                 }
                 catch (Exception ex)

@@ -34,6 +34,16 @@ namespace Pisheyar.Application.Accounts.Queries.GetCurrentContractorUser
 
         public double? AverageRate { get; set; }
 
+        public string Address { get; set; }
+
+        public string AboutMe { get; set; }
+
+        public string Telephone { get; set; }
+
+        public string Website { get; set; }
+
+        public string Instagram { get; set; }
+
         public string ProfileDocument { get; set; }
 
         public bool IsRegister { get; set; }
@@ -59,6 +69,11 @@ namespace Pisheyar.Application.Accounts.Queries.GetCurrentContractorUser
                 .ForMember(d => d.Longitude, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().Longitude))
                 .ForMember(d => d.Credit, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().Credit))
                 .ForMember(d => d.AverageRate, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().AverageRate))
+                .ForMember(d => d.Address, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().Address))
+                .ForMember(d => d.AboutMe, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().AboutMe))
+                .ForMember(d => d.Telephone, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().Telephone))
+                .ForMember(d => d.Website, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().Website))
+                .ForMember(d => d.Instagram, opt => opt.MapFrom(s => s.Contractor.SingleOrDefault().Instagram))
                 .ForMember(d => d.ProfileDocument, opt => opt.MapFrom(s => s.ProfileDocument.Path))
                 .ForMember(d => d.Business, opt => opt.MapFrom(s => new CurrentContracorUserBusinessDto
                 {

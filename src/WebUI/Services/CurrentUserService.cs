@@ -12,10 +12,10 @@ namespace WebUI.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
-        private readonly IPisheyarContext _context;
+        private readonly IPishePlusContext _context;
 
         public CurrentUserService(IHttpContextAccessor httpContextAccessor,
-            IPisheyarContext context)
+            IPishePlusContext context)
         {
             _context = context;
 

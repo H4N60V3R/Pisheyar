@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Contact.Commands.CreateComplaint
 
         public class CreateComplaintCommandHandler : IRequestHandler<CreateComplaintCommand, CreateComplaintVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public CreateComplaintCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public CreateComplaintCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

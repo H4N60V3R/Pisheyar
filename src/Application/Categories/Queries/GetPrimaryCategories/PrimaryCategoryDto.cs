@@ -21,6 +21,8 @@ namespace Pisheyar.Application.Categories.Queries.GetPrimaryCategories
 
         public FilepondDto CoverDocument { get; set; }
 
+        public FilepondDto SecondPageCoverDocument { get; set; }
+
         public FilepondDto ActiveIconDocument { get; set; }
 
         public FilepondDto InactiveIconDocument { get; set; }

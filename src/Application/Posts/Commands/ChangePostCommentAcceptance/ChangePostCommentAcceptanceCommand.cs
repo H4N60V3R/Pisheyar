@@ -20,9 +20,9 @@ namespace Pisheyar.Application.Posts.Commands.ChangePostCommentAcceptance
 
         public class ChangePostCommentAcceptanceCommandHandler : IRequestHandler<ChangePostCommentAcceptanceCommand, int>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public ChangePostCommentAcceptanceCommandHandler(IPisheyarContext context)
+            public ChangePostCommentAcceptanceCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

@@ -25,10 +25,10 @@ namespace Pisheyar.Application.Orders.Commands.FinishOrder
 
         public class FinishOrderCommandHandler : IRequestHandler<FinishOrderCommand, FinishOrderVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public FinishOrderCommandHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public FinishOrderCommandHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

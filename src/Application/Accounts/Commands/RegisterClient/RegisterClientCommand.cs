@@ -28,10 +28,10 @@ namespace Pisheyar.Application.Accounts.Commands.RegisterClient
 
         public class RegisterCommandHandler : IRequestHandler<RegisterClientCommand, RegisterClientCommandVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ISmsService _sms;
 
-            public RegisterCommandHandler(IPisheyarContext context, ISmsService smsService)
+            public RegisterCommandHandler(IPishePlusContext context, ISmsService smsService)
             {
                 _context = context;
                 _sms = smsService;
@@ -61,7 +61,7 @@ namespace Pisheyar.Application.Accounts.Commands.RegisterClient
                     }
 
                     //int t = new Random().Next(100000, 999999);
-                    const int t = 111111;
+                    int t = 111111;
 
                     User newUser = new User
                     {
@@ -150,7 +150,7 @@ namespace Pisheyar.Application.Accounts.Commands.RegisterClient
                     client.ModifiedDate = now;
 
                     //int t = new Random().Next(100000, 999999);
-                    const int t = 111111;
+                    int t = 111111;
 
                     Token userToken = new Token
                     {

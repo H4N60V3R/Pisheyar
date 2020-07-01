@@ -13,7 +13,10 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
         {
             entity.HasIndex(e => e.ProvinceId);
 
+            entity.Property(e => e.CityId).HasColumnName("CityID");
+
             entity.Property(e => e.CityGuid)
+                .HasColumnName("CityGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 
@@ -22,6 +25,12 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(128);
+
+            entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
 
             entity.HasOne(d => d.Province)
                 .WithMany(p => p.City)

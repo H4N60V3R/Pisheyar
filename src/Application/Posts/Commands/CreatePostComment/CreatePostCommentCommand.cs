@@ -24,9 +24,9 @@ namespace Pisheyar.Application.Posts.Commands.CreatePostComment
 
         public class CreatePostCommentCommandHandler : IRequestHandler<CreatePostCommentCommand, int>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public CreatePostCommentCommandHandler(IPisheyarContext context)
+            public CreatePostCommentCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

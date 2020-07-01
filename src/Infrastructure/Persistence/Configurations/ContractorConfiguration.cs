@@ -17,13 +17,36 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.UserId);
 
+            entity.Property(e => e.ContractorId).HasColumnName("ContractorID");
+
+            entity.Property(e => e.BusinessTypeCodeId).HasColumnName("BusinessTypeCodeID");
+
+            entity.Property(e => e.CityId).HasColumnName("CityID");
+
             entity.Property(e => e.ContractorGuid)
+                .HasColumnName("ContractorGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 
+            entity.Property(e => e.Instagram).HasMaxLength(128);
+
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
+            entity.Property(e => e.Latitude)
+                .IsRequired()
+                .HasMaxLength(128);
+
+            entity.Property(e => e.Longitude)
+                .IsRequired()
+                .HasMaxLength(128);
+
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.Telephone).HasMaxLength(128);
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.Property(e => e.Website).HasMaxLength(128);
 
             entity.HasOne(d => d.BusinessTypeCode)
                 .WithMany(p => p.Contractor)

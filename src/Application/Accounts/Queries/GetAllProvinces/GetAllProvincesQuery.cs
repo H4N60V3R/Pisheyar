@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Accounts.Queries.GetAllProvinces
     {
         public class GetAllProvincesQueryHandler : IRequestHandler<GetAllProvincesQuery, GetAllProvincesVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetAllProvincesQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetAllProvincesQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

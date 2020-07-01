@@ -14,6 +14,8 @@ namespace Pisheyar.Application.Categories.Commands.SetCategoryDetails
 
         public string CoverDocumentGuid { get; set; }
 
+        public string SecondPageCoverDocumentGuid { get; set; }
+
         public string ActiveIconDocumentGuid { get; set; }
 
         public string InactiveIconDocumentGuid { get; set; }

@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Posts.Queries.GetAllPosts
     {
         public class GetAllPostsQueryHandler : IRequestHandler<GetAllPostsQuery, GetAllPostVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetAllPostsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetAllPostsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

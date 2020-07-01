@@ -21,10 +21,10 @@ namespace Pisheyar.Application.Posts.Commands.UpdatePost
 
         public class UpdatePostCommandHandler : IRequestHandler<UpdatePostCommand, UpdatePostCommandVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public UpdatePostCommandHandler(IPisheyarContext context, ICurrentUserService currentUserService)
+            public UpdatePostCommandHandler(IPishePlusContext context, ICurrentUserService currentUserService)
             {
                 _context = context;
                 _currentUser = currentUserService;

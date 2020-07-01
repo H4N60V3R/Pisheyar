@@ -19,13 +19,28 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.StateCodeId);
 
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+
+            entity.Property(e => e.ClientId).HasColumnName("ClientID");
+
+            entity.Property(e => e.ContractorId).HasColumnName("ContractorID");
+
+            entity.Property(e => e.Description).IsRequired();
+
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
             entity.Property(e => e.OrderGuid)
+                .HasColumnName("OrderGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.StateCodeId).HasColumnName("StateCodeID");
+
+            entity.Property(e => e.Title).IsRequired();
 
             entity.HasOne(d => d.Category)
                 .WithMany(p => p.Order)
@@ -42,7 +57,6 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
             entity.HasOne(d => d.Contractor)
                 .WithMany(p => p.Order)
                 .HasForeignKey(d => d.ContractorId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Order_Contractor");
 
             entity.HasOne(d => d.StateCode)

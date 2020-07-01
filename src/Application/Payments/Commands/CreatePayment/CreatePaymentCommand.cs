@@ -20,11 +20,11 @@ namespace Pisheyar.Application.Payments.Commands.CreatePayment
 
         public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, CreatePaymentVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IZarinPalService _zarinPal;
             private readonly ICurrentUserService _currentUser;
 
-            public CreatePaymentCommandHandler(IPisheyarContext context,
+            public CreatePaymentCommandHandler(IPishePlusContext context,
                 IZarinPalService zarinPal,
                 ICurrentUserService currentUser)
             {

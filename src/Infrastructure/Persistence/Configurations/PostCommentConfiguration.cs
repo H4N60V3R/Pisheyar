@@ -15,6 +15,10 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.PostId);
 
+            entity.Property(e => e.PostCommentId).HasColumnName("PostCommentID");
+
+            entity.Property(e => e.CommentId).HasColumnName("CommentID");
+
             entity.Property(e => e.IsAccept).HasDefaultValueSql("((1))");
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
@@ -22,8 +26,11 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
             entity.Property(e => e.PostCommentGuid)
+                .HasColumnName("PostCommentGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.PostId).HasColumnName("PostID");
 
             entity.HasOne(d => d.Comment)
                 .WithMany(p => p.PostComment)

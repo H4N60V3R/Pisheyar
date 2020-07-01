@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Posts.Queries.GetRejectedPostCommentsQuery
 
         public class GetRejectedPostCommentsQueryHandler : IRequestHandler<GetRejectedPostCommentsQuery, RejectedPostCommentsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetRejectedPostCommentsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetRejectedPostCommentsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

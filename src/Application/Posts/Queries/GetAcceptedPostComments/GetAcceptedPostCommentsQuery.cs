@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Posts.Queries.GetAcceptedPostComments
 
         public class GetAcceptedPostCommentsQueryHandler : IRequestHandler<GetAcceptedPostCommentsQuery, AcceptedPostCommentsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetAcceptedPostCommentsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetAcceptedPostCommentsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

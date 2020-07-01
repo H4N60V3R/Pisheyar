@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Accounts.Queries.GetAllClients
     {
         public class GetUsersQueryHandler : IRequestHandler<GetAllClientsQuery, GetAllClientsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetUsersQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetUsersQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

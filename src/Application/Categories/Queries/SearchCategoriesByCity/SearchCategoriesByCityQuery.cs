@@ -22,9 +22,9 @@ namespace Pisheyar.Application.Categories.Queries.SearchCategoriesByCity
 
         public class SearchCategoriesByCityQueryHandler : IRequestHandler<SearchCategoriesByCityQuery, SearchCategoriesByCityVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public SearchCategoriesByCityQueryHandler(IPisheyarContext context)
+            public SearchCategoriesByCityQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }

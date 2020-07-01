@@ -13,13 +13,26 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
         {
             entity.HasIndex(e => e.PermissionGroupId);
 
+            entity.Property(e => e.PermissionId).HasColumnName("PermissionID");
+
+            entity.Property(e => e.DisplayName)
+                .IsRequired()
+                .HasMaxLength(128);
+
             entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(128);
+
+            entity.Property(e => e.PermissionGroupId).HasColumnName("PermissionGroupID");
+
             entity.Property(e => e.PermissionGuid)
+                .HasColumnName("PermissionGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 

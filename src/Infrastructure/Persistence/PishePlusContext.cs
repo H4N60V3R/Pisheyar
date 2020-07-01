@@ -10,17 +10,17 @@ using Pisheyar.Domain.Entities;
 
 namespace Pisheyar.Infrastructure.Persistence
 {
-    public partial class PisheyarContext : DbContext, IPisheyarContext
+    public partial class PishePlusContext : DbContext, IPishePlusContext
     {
         //private readonly ICurrentUserService _currentUser;
         private readonly IDateTime _dateTime;
 
-        public PisheyarContext()
+        public PishePlusContext()
         {
         }
 
-        public PisheyarContext(
-            DbContextOptions<PisheyarContext> options,
+        public PishePlusContext(
+            DbContextOptions<PishePlusContext> options,
             //ICurrentUserService currentUserService,
             IDateTime dateTime) : base(options)
         {
@@ -43,6 +43,7 @@ namespace Pisheyar.Infrastructure.Persistence
         public virtual DbSet<Contractor> Contractor { get; set; }
         public virtual DbSet<ContractorCategory> ContractorCategory { get; set; }
         public virtual DbSet<ContractorDiscount> ContractorDiscount { get; set; }
+        public virtual DbSet<ContractorDocument> ContractorDocument { get; set; }
         public virtual DbSet<Document> Document { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderRequest> OrderRequest { get; set; }
@@ -61,10 +62,10 @@ namespace Pisheyar.Infrastructure.Persistence
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<RolePermission> RolePermission { get; set; }
         public virtual DbSet<Setting> Setting { get; set; }
+        public virtual DbSet<SmsProvider> SmsProvider { get; set; }
         public virtual DbSet<SmsProviderSetting> SmsProviderSetting { get; set; }
         public virtual DbSet<SmsProviderSettingNumber> SmsProviderSettingNumber { get; set; }
         public virtual DbSet<SmsResponse> SmsResponse { get; set; }
-        public virtual DbSet<SmsProvider> SmsProvider { get; set; }
         public virtual DbSet<SmsTemplate> SmsTemplate { get; set; }
         public virtual DbSet<Suggestion> Suggestion { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
@@ -102,6 +103,8 @@ namespace Pisheyar.Infrastructure.Persistence
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.Seed();
+
+            //OnModelCreatingPartial(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

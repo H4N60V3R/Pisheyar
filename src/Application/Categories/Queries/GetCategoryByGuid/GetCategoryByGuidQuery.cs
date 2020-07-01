@@ -24,9 +24,9 @@ namespace Pisheyar.Application.Categories.Queries.GetCategoryByGuid
 
         public class GetCategoryByGuidQueryHandler : IRequestHandler<GetCategoryByGuidQuery, CategoryVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public GetCategoryByGuidQueryHandler(IPisheyarContext context)
+            public GetCategoryByGuidQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }
@@ -58,6 +58,24 @@ namespace Pisheyar.Application.Categories.Queries.GetCategoryByGuid
                                 Metadata = new FilepondMetadata
                                 {
                                     Poster = x.CoverDocument.Path
+                                }
+                            }
+                        },
+                        SecondPageCoverDocument = new FilepondDto
+                        {
+                            Source = x.SecondPageCoverDocument.Path,
+                            Options = new FilepondOptions
+                            {
+                                Type = "local",
+                                Files = new FilepondFile
+                                {
+                                    Name = x.SecondPageCoverDocument.Name,
+                                    Size = x.SecondPageCoverDocument.Size.ToString(),
+                                    Type = x.SecondPageCoverDocument.TypeCode.Name
+                                },
+                                Metadata = new FilepondMetadata
+                                {
+                                    Poster = x.SecondPageCoverDocument.Path
                                 }
                             }
                         },
@@ -134,6 +152,7 @@ namespace Pisheyar.Application.Categories.Queries.GetCategoryByGuid
                 {
                     List<Category> categories = await _context.Category
                        .Include(x => x.CoverDocument)
+                       .Include(x => x.SecondPageCoverDocument)
                        .Include(x => x.ActiveIconDocument)
                        .Include(x => x.InactiveIconDocument)
                        .Include(x => x.QuadMenuDocument)
@@ -157,6 +176,7 @@ namespace Pisheyar.Application.Categories.Queries.GetCategoryByGuid
                     Description = category.Description,
                     Sort = category.Sort,
                     CoverDocument = category.CoverDocument,
+                    SecondPageCoverDocument = category.SecondPageCoverDocument,
                     ActiveIconDocument = category.ActiveIconDocument,
                     InactiveIconDocument = category.InactiveIconDocument,
                     QuadMenuDocument = category.QuadMenuDocument,
@@ -195,6 +215,24 @@ namespace Pisheyar.Application.Categories.Queries.GetCategoryByGuid
                                 Metadata = new FilepondMetadata
                                 {
                                     Poster = x.CoverDocument?.Path
+                                }
+                            }
+                        },
+                        SecondPageCoverDocument = new FilepondDto
+                        {
+                            Source = x.SecondPageCoverDocument?.Path,
+                            Options = new FilepondOptions
+                            {
+                                Type = "local",
+                                Files = new FilepondFile
+                                {
+                                    Name = x.SecondPageCoverDocument?.Name,
+                                    Size = x.SecondPageCoverDocument?.Size.ToString(),
+                                    Type = x.SecondPageCoverDocument?.TypeCode.Name
+                                },
+                                Metadata = new FilepondMetadata
+                                {
+                                    Poster = x.SecondPageCoverDocument?.Path
                                 }
                             }
                         },

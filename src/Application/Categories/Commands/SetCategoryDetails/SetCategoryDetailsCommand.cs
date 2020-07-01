@@ -21,9 +21,9 @@ namespace Pisheyar.Application.Categories.Commands.SetCategoryDetails
 
         public class SetCategoryDetailsQueryHandler : IRequestHandler<SetCategoryDetailsCommand, SetCategoryDetailsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public SetCategoryDetailsQueryHandler(IPisheyarContext context)
+            public SetCategoryDetailsQueryHandler(IPishePlusContext context)
             {
                 _context = context;
             }
@@ -72,6 +72,39 @@ namespace Pisheyar.Application.Categories.Commands.SetCategoryDetails
                     }
                 }
 
+                if (!string.IsNullOrEmpty(request.Command.SecondPageCoverDocumentGuid))
+                {
+                    Document secondPageCoverDocument = await _context.Document
+                        .FirstOrDefaultAsync(x => x.DocumentGuid == Guid.Parse(request.Command.SecondPageCoverDocumentGuid), cancellationToken);
+
+                    if (secondPageCoverDocument == null) return new SetCategoryDetailsVm()
+                    {
+                        Message = "تصویر کاور مورد نظر یافت نشد",
+                        State = (int)SetCategoryDetailsState.SecondPageCoverDocumentNotFound
+                    };
+
+                    if (category.SecondPageCoverDocumentId != secondPageCoverDocument.DocumentId)
+                    {
+                        Document oldDocument = await _context.Document
+                            .FirstOrDefaultAsync(x => x.DocumentId == category.SecondPageCoverDocumentId, cancellationToken);
+
+                        if (oldDocument != null)
+                        {
+                            int uploadsIndex = oldDocument.Path.IndexOf("Uploads");
+                            string documentPath = Path.Combine(Directory.GetCurrentDirectory(),
+                                request.WebRootPath,
+                                oldDocument.Path.Substring(uploadsIndex));
+
+                            if (File.Exists(documentPath))
+                                File.Delete(documentPath);
+
+                            _context.Document.Remove(oldDocument);
+                        }
+
+                        category.SecondPageCoverDocumentId = secondPageCoverDocument.DocumentId;
+                    }
+                }
+
                 if (!string.IsNullOrEmpty(request.Command.ActiveIconDocumentGuid))
                 {
                     Document activeIconDocument = await _context.Document
@@ -80,7 +113,7 @@ namespace Pisheyar.Application.Categories.Commands.SetCategoryDetails
                     if (activeIconDocument == null) return new SetCategoryDetailsVm()
                     {
                         Message = "تصویر آیکون فعال مورد نظر یافت نشد",
-                        State = (int)SetCategoryDetailsState.CoverDocumentNotFound
+                        State = (int)SetCategoryDetailsState.ActiveIconDocumentNotFound
                     };
                     
                     if (category.ActiveIconDocumentId != activeIconDocument.DocumentId)
@@ -113,7 +146,7 @@ namespace Pisheyar.Application.Categories.Commands.SetCategoryDetails
                     if (inactiveIconDocument == null) return new SetCategoryDetailsVm()
                     {
                         Message = "تصویر آیکون غیرفعال مورد نظر یافت نشد",
-                        State = (int)SetCategoryDetailsState.CoverDocumentNotFound
+                        State = (int)SetCategoryDetailsState.InactiveIconDocumentNotFound
                     };
 
                     if (category.InactiveIconDocumentId != inactiveIconDocument.DocumentId)
@@ -146,7 +179,7 @@ namespace Pisheyar.Application.Categories.Commands.SetCategoryDetails
                     if (quadMenuDocument == null) return new SetCategoryDetailsVm()
                     {
                         Message = "تصویر فهرست چرخشی مورد نظر یافت نشد",
-                        State = (int)SetCategoryDetailsState.CoverDocumentNotFound
+                        State = (int)SetCategoryDetailsState.QuadMenuDocumentNotFound
                     };
                     
                     if (category.QuadMenuDocumentId != quadMenuDocument.DocumentId)

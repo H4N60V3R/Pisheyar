@@ -17,13 +17,20 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
             entity.HasIndex(e => e.RoleId)
                 .HasName("IX_Tbl_RolePermission_RP_RoleID");
 
+            entity.Property(e => e.RolePermissionId).HasColumnName("RolePermissionID");
+
             entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.PermissionId).HasColumnName("PermissionID");
+
+            entity.Property(e => e.RoleId).HasColumnName("RoleID");
+
             entity.Property(e => e.RolePermissionGuid)
+                .HasColumnName("RolePermissionGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 

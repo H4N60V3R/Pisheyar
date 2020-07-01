@@ -24,9 +24,9 @@ namespace Pisheyar.Application.ContactUsMessages.Commands.SendMessage
 
         public class SendMessageCommandHandler : IRequestHandler<SendMessageCommand, SendMessageVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public SendMessageCommandHandler(IPisheyarContext context)
+            public SendMessageCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

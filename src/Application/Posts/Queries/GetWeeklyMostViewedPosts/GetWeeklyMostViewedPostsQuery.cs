@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Posts.Queries.GetWeeklyMostViewedPosts
     {
         public class GetWeeklyMostViewedPostsQueryHandler : IRequestHandler<GetWeeklyMostViewedPostsQuery, GetWeeklyMostViewedPostsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetWeeklyMostViewedPostsQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetWeeklyMostViewedPostsQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

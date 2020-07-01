@@ -20,10 +20,10 @@ namespace Pisheyar.Application.OrderRequests.Queries.GetOrderRequestAccessStatus
 
         public class GetOrderRequestAcceptanceStatusQueryHandler : IRequestHandler<GetOrderRequestAccessStatusQuery, GetOrderRequestAccessStatusVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public GetOrderRequestAcceptanceStatusQueryHandler(IPisheyarContext context,
+            public GetOrderRequestAcceptanceStatusQueryHandler(IPishePlusContext context,
                 ICurrentUserService currentUserService)
             {
                 _context = context;

@@ -20,9 +20,9 @@ namespace Pisheyar.Application.Accounts.Commands.ChangeUserActiveness
 
         public class DeleteUserCommandHandler : IRequestHandler<ChangeUserActivenessCommand, ChangeUserActivenessVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
 
-            public DeleteUserCommandHandler(IPisheyarContext context)
+            public DeleteUserCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

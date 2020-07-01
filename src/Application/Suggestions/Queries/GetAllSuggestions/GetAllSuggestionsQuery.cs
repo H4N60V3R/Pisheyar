@@ -18,11 +18,11 @@ namespace Pisheyar.Application.Posts.Queries.GetAllSuggestions
     {
         public class GetAllComplaintsQueryHandler : IRequestHandler<GetAllSuggestionsQuery, GetAllSuggestionsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
             private readonly IMapper _mapper;
 
-            public GetAllComplaintsQueryHandler(IPisheyarContext context, ICurrentUserService currentUser, IMapper mapper)
+            public GetAllComplaintsQueryHandler(IPishePlusContext context, ICurrentUserService currentUser, IMapper mapper)
             {
                 _context = context;
                 _currentUser = currentUser;

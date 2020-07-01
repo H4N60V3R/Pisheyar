@@ -19,10 +19,10 @@ namespace Pisheyar.Application.Codes.Queries.GetOrderRequestsPrice
     {
         public class GetCodesByCodeGroupGuidQueryHandler : IRequestHandler<GetOrderRequestsPriceQuery, GetOrderRequestsPriceVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public GetCodesByCodeGroupGuidQueryHandler(IPisheyarContext context, ICurrentUserService currentUser)
+            public GetCodesByCodeGroupGuidQueryHandler(IPishePlusContext context, ICurrentUserService currentUser)
             {
                 _context = context;
                 _currentUser = currentUser;

@@ -12,9 +12,11 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<UserPermission> entity)
         {
             entity.HasIndex(e => e.PermissionId)
-                    .HasName("IX_Tbl_UserPermission_UP_PermissionID");
+                .HasName("IX_Tbl_UserPermission_UP_PermissionID");
 
             entity.HasIndex(e => e.UserId);
+
+            entity.Property(e => e.UserPermissionId).HasColumnName("UserPermissionID");
 
             entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
@@ -22,7 +24,12 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.PermissionId).HasColumnName("PermissionID");
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+
             entity.Property(e => e.UserPermissionGuid)
+                .HasColumnName("UserPermissionGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
 

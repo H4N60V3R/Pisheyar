@@ -22,12 +22,12 @@ namespace Pisheyar.Infrastructure.Identity
 {
     public class IdentityService : IIdentityService
     {
-        private readonly IPisheyarContext _context;
+        private readonly IPishePlusContext _context;
         private readonly ISmsService _sms;
         private readonly IMapper _mapper;
         private readonly JwtSettings _jwtSettings;
 
-        public IdentityService(IPisheyarContext context, ISmsService smsService, IMapper mapper, IOptions<JwtSettings> jwtSettings)
+        public IdentityService(IPishePlusContext context, ISmsService smsService, IMapper mapper, IOptions<JwtSettings> jwtSettings)
         {
             _context = context;
             _sms = smsService;
@@ -102,6 +102,17 @@ namespace Pisheyar.Infrastructure.Identity
                 user.IsRegister = true;
                 user.IsActive = true;
                 await _context.SaveChangesAsync(CancellationToken.None);
+
+                object smsResult = await _sms.SendServiceable(Domain.Enums.SmsTemplate.RegisterMessage, user.PhoneNumber, string.Empty, "", "", "", user.FirstName + " " + user.LastName);
+
+                if (smsResult.GetType().Name != "SendResult")
+                {
+                    // sent result
+                }
+                else
+                {
+                    // sms error
+                }
             }
 
             DateTime expireDate;

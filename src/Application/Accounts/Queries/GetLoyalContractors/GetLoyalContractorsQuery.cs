@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Payments.Queries.GetLoyalContractors
     {
         public class OrdersListQueryHandler : IRequestHandler<GetLoyalContractorsQuery, GetLoyalContractorsVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly ICurrentUserService _currentUser;
 
-            public OrdersListQueryHandler(IPisheyarContext context, ICurrentUserService currentUserService)
+            public OrdersListQueryHandler(IPishePlusContext context, ICurrentUserService currentUserService)
             {
                 _context = context;
                 _currentUser = currentUserService;

@@ -20,10 +20,10 @@ namespace Pisheyar.Application.Accounts.Queries.GetUserByGuid
 
         public class GetUserByGuidQueryHandler : IRequestHandler<GetUserByGuidQuery, UserByGuidVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly IMapper _mapper;
 
-            public GetUserByGuidQueryHandler(IPisheyarContext context, IMapper mapper)
+            public GetUserByGuidQueryHandler(IPishePlusContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

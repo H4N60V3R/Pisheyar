@@ -5,7 +5,7 @@ using Pisheyar.Domain.Entities;
 
 namespace Pisheyar.Application.Common.Interfaces
 {
-    public interface IPisheyarContext
+    public interface IPishePlusContext
     {
         DbSet<Admin> Admin { get; set; }
         DbSet<Advertisement> Advertisement { get; set; }
@@ -22,6 +22,7 @@ namespace Pisheyar.Application.Common.Interfaces
         DbSet<Contractor> Contractor { get; set; }
         DbSet<ContractorCategory> ContractorCategory { get; set; }
         DbSet<ContractorDiscount> ContractorDiscount { get; set; }
+        DbSet<ContractorDocument> ContractorDocument { get; set; }
         DbSet<Document> Document { get; set; }
         DbSet<Order> Order { get; set; }
         DbSet<OrderRequest> OrderRequest { get; set; }
@@ -40,10 +41,10 @@ namespace Pisheyar.Application.Common.Interfaces
         DbSet<Role> Role { get; set; }
         DbSet<RolePermission> RolePermission { get; set; }
         DbSet<Setting> Setting { get; set; }
+        DbSet<SmsProvider> SmsProvider { get; set; }
         DbSet<SmsProviderSetting> SmsProviderSetting { get; set; }
         DbSet<SmsProviderSettingNumber> SmsProviderSettingNumber { get; set; }
         DbSet<SmsResponse> SmsResponse { get; set; }
-        DbSet<SmsProvider> SmsProvider { get; set; }
         DbSet<SmsTemplate> SmsTemplate { get; set; }
         DbSet<Suggestion> Suggestion { get; set; }
         DbSet<Tag> Tag { get; set; }

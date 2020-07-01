@@ -11,13 +11,22 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<SmsProvider> entity)
         {
+            entity.ToTable("SMSProvider");
+
+            entity.Property(e => e.SmsProviderId).HasColumnName("SMSProviderID");
+
             entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
             entity.Property(e => e.IsDelete).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(128);
+
             entity.Property(e => e.SmsProviderGuid)
+                .HasColumnName("SMSProviderGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
         }

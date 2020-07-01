@@ -18,10 +18,10 @@ namespace Pisheyar.Application.Categories.Commands.DeleteCategory
 
         public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, DeleteCategoryVm>
         {
-            private readonly IPisheyarContext _context;
+            private readonly IPishePlusContext _context;
             private readonly DateTime now = DateTime.Now;
 
-            public DeleteCategoryCommandHandler(IPisheyarContext context)
+            public DeleteCategoryCommandHandler(IPishePlusContext context)
             {
                 _context = context;
             }

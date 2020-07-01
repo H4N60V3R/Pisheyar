@@ -15,7 +15,15 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
 
             entity.HasIndex(e => e.UserId);
 
+            entity.Property(e => e.PostId).HasColumnName("PostID");
+
+            entity.Property(e => e.Abstract).IsRequired();
+
             entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
+
+            entity.Property(e => e.Description).IsRequired();
+
+            entity.Property(e => e.DocumentId).HasColumnName("DocumentID");
 
             entity.Property(e => e.IsInSlider).HasDefaultValueSql("((0))");
 
@@ -26,8 +34,13 @@ namespace Pisheyar.Infrastructure.Persistence.Configurations
             entity.Property(e => e.ModifiedDate).HasDefaultValueSql("(getdate())");
 
             entity.Property(e => e.PostGuid)
+                .HasColumnName("PostGUID")
                 .HasColumnType("UNIQUEIDENTIFIER ROWGUIDCOL")
                 .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.Title).IsRequired();
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
 
             entity.HasOne(d => d.Document)
                 .WithMany(p => p.Post)
