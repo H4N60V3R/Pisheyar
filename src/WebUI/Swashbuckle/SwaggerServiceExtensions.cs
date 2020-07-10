@@ -68,7 +68,7 @@ namespace WebUI.Swashbuckle
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 c.DocExpansion(DocExpansion.List);
-                c.RoutePrefix = "api/docs";
+                c.RoutePrefix = "docs";
             });
 
             return app;

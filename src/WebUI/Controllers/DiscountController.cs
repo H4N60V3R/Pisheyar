@@ -10,8 +10,6 @@ using Pisheyar.Application.Discounts.Commands.CreatePublicDiscount;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class DiscountController : ApiController
     {
         /// <summary>

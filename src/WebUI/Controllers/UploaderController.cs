@@ -13,8 +13,6 @@ using Pisheyar.Application.Common.UploadHelper.Filepond;
 namespace WebUI.Controllers
 {
     //[Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class UploaderController : ApiController
     {
         private readonly IWebHostEnvironment _hostingEnvironment;

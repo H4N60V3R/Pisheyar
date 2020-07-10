@@ -15,6 +15,8 @@ namespace Pisheyar.Application.OrderRequests.Queries.GetOrderRequestsForClient
 
         public string Contractor { get; set; }
 
+        public string Gender { get; set; }
+
         public string Message { get; set; }
 
         public long OfferedPrice { get; set; }
@@ -37,6 +39,7 @@ namespace Pisheyar.Application.OrderRequests.Queries.GetOrderRequestsForClient
                 .ForMember(d => d.IsAccepted, opt => opt.MapFrom(s => s.IsAccept))
                 .ForMember(d => d.IsAccessible, opt => opt.MapFrom(s => (s.Order.StateCodeId == 9 && s.IsAllow) || s.IsAccept))
                 .ForMember(d => d.Contractor, opt => opt.MapFrom(s => s.Contractor.User.FirstName + " " + s.Contractor.User.LastName))
+                .ForMember(d => d.Gender, opt => opt.MapFrom(s => s.Contractor.User.GenderCode.DisplayName))
                 .ForMember(d => d.ModifiedDate, opt => opt.MapFrom(s => PersianDateExtensionMethods.ToPeString(s.ModifiedDate, "yyyy/MM/dd HH:mm")));
         }
     }

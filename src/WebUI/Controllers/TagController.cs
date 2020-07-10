@@ -10,8 +10,6 @@ using Pisheyar.Application.Tags.Queries.GetAllTags;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class TagController : ApiController
     {
         /// <summary>

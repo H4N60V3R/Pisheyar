@@ -21,8 +21,6 @@ using Pisheyar.Application.OrderRequests.Queries.GetOrderRequestsForClient;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class OrderRequestController : ApiController
     {
         /// <summary>

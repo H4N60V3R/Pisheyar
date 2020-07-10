@@ -11,8 +11,6 @@ using Pisheyar.Application.Posts.Queries.GetAllComplaints;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class ComplaintController : ApiController
     {
         /// <summary>

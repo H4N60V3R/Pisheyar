@@ -16,8 +16,6 @@ using Pisheyar.Application.Orders.Queries.GetOrdersForContractor;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class OrderController : ApiController
     {
         /// <summary>

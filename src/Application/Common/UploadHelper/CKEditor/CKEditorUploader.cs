@@ -51,7 +51,7 @@ namespace Pisheyar.Application.Common.UploadHelper.CKEditor
                 var document = new Document
                 {
                     TypeCodeId = typeCode.CodeId,
-                    Path = Path.Combine("http://185.94.97.164", "Uploads", filename),
+                    Path = Path.Combine("http://api.pisheplus.com", "Uploads", filename),
                     Size = request.File.Length,
                     Name = filename
                 };

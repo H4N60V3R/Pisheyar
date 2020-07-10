@@ -9,9 +9,6 @@ using Pisheyar.Application.Posts.Queries.GetAllAdvertisements;
 
 namespace WebUI.Controllers
 {
-
-    [Route("api/[controller]")]
-    [ApiController]
     public class AdvertisementController : ApiController
     {
         /// <summary>

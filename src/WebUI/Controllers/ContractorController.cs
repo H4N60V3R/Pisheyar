@@ -12,8 +12,6 @@ using Pisheyar.Application.OrderRequests.Queries.GetContractorCategories;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class ContractorController : ApiController
     {
         /// <summary>

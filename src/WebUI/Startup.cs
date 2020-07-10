@@ -66,6 +66,9 @@ namespace WebUI
                     .WithOrigins("http://127.0.0.1:3002")
                     .WithOrigins("http://localhost:5500")
                     .WithOrigins("http://127.0.0.1:5500")
+                    .WithOrigins("http://pisheplus.com")
+                    .WithOrigins("http://admin.pisheplus.com")
+                    .WithOrigins("http://panel.pisheplus.com")
                     .AllowCredentials();
             }));
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IPishePlusContext>())

@@ -26,8 +26,6 @@ using Pisheyar.Application.Payments.Queries.GetLoyalContractors;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class AccountController : ApiController
     {
         /// <summary>

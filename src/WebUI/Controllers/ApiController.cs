@@ -4,9 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WebUI.Controllers
 {
-    //[Authorize]
+    [Route("[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
     public abstract class ApiController : ControllerBase
     {
         private IMediator _mediator;

@@ -10,8 +10,6 @@ using Pisheyar.Application.Contractors.Commands.ChangeClientCity;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class ClientController : ApiController
     {
         /// <summary>

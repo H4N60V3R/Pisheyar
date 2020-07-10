@@ -13,7 +13,7 @@ namespace Pisheyar.Infrastructure.Services
         public async Task<string> CreatePaymentRequest(Guid paymentGuid, int cost, string email, string mobile)
         {
             var payment = new Payment(cost);
-            var res = await payment.PaymentRequest($"پرداخت شماره {paymentGuid}", "http://185.94.97.164/api/Payment/OnlinePayment/" + paymentGuid, email, mobile);
+            var res = await payment.PaymentRequest($"پرداخت شماره {paymentGuid}", "http://api.pisheplus.com/Payment/OnlinePayment/" + paymentGuid, email, mobile);
             return res.Status == 100 ? "https://sandbox.zarinpal.com/pg/StartPay/" + res.Authority : null;
         }
 

@@ -45,7 +45,7 @@ namespace Pisheyar.Application.Common.UploadHelper.Filepond
                 var document = new Document
                 {
                     TypeCodeId = typeCode.Result.CodeId,
-                    Path = Path.Combine("http://185.94.97.164", "Uploads", filename),
+                    Path = Path.Combine("http://api.pisheplus.com", "Uploads", filename),
                     Size = request.Filepond.Length,
                     Name = filename
                 };

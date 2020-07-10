@@ -31,8 +31,6 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class PostController : ApiController
     {
         private readonly IWebHostEnvironment _hostingEnvironment;

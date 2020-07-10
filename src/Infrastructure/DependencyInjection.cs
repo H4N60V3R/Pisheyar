@@ -30,7 +30,7 @@ namespace Pisheyar.Infrastructure
         {
             services.AddDbContext<PishePlusContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("ServerConnection"),
+                    configuration.GetConnectionString("Server"),
                     b => b.MigrationsAssembly(typeof(PishePlusContext).Assembly.FullName)));
 
             services.AddScoped<IPishePlusContext>(provider => provider.GetService<PishePlusContext>());

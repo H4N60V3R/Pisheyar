@@ -18,8 +18,6 @@ using Pisheyar.Application.Categories.Queries.SearchCategoriesByCity;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class CategoryController : ApiController
     {
         private readonly IWebHostEnvironment _hostingEnvironment;

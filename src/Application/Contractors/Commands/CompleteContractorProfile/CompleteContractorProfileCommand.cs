@@ -15,6 +15,10 @@ namespace Pisheyar.Application.Contractors.Commands.CompleteContractorProfile
 {
     public class CompleteContractorProfileCommand : IRequest<CompleteContractorProfileVm>
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public string Address { get; set; }
 
         public string AboutMe { get; set; }
@@ -57,6 +61,8 @@ namespace Pisheyar.Application.Contractors.Commands.CompleteContractorProfile
                     State = (int)CompleteContractorProfileState.ContractorNotFound
                 };
 
+                contractor.User.FirstName = request.FirstName;
+                contractor.User.LastName = request.LastName;
                 contractor.Address = request.Address;
                 contractor.AboutMe = request.AboutMe;
                 contractor.Telephone = request.Telephone;

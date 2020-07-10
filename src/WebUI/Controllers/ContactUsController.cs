@@ -9,8 +9,6 @@ using Pisheyar.Application.ContactUsMessages.Queries.GetAllContactUsMessages;
 
 namespace WebUI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ContactUsController : ApiController
     {
         /// <summary>

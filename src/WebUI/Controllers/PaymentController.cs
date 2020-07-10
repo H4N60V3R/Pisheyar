@@ -13,8 +13,6 @@ using Pisheyar.Application.Payments.Queries.GetPaymentByGuid;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class PaymentController : ApiController
     {
         /// <summary>

@@ -11,8 +11,6 @@ using Pisheyar.Application.Posts.Queries.GetAllSuggestions;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class SuggestionController : ApiController
     {
         /// <summary>

@@ -13,8 +13,6 @@ using Pisheyar.Application.Codes.Queries.GetUsersInitialCredit;
 namespace WebUI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
     public class SettingController : ApiController
     {
         /// <summary>
